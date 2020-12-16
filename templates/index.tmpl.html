@@ -1,0 +1,27 @@
+<!--Embed the header.tmpl template at this location-->
+{{ template "header.tmpl.html" . }}
+{{ template "topnav.tmpl.html" .  }}
+  <div class="container">
+    <div Class="p1"> 
+      <h3>Welcome to ops-dude.com</h3> 
+    </div>
+    <div Class="p1">
+      This is the ops-dude.com site being resurrected from the grave. <br /><br />
+      Years ago I had put up a blog(ops-dude.com) to post some tech articles and some other things I was interested in. Long story short I had gotten busy with work and one thing led to another and I let the domain lapse… By the time I tried to resurrect it someone had swooped it up and purchased the domain while I was slacking off. I patiently waited for many years before it was available again. I believe that go-daddy had bought it and sat on it being the domain never had a web site in all these years. Every time I reached out to Go-daddy they wanted to extort money from me to even ask the domain owner if they would sell it back to me. Finally the domain lapsed and I was able to buy it back. Unfortunately  the backups I had of the original blog were lost and I only was able to get a partial restore. I was able to convert a few of the original posts to Markdown and am posting them here. <br /><br /> 
+      I am still sorting out what new blog posts I can put together. I have done a lot of new and interesting things since I last had the site operational. For instance I might put together a post about this Markdown render I put together in Go.<br /><br />  
+      Anyways stay tuned. 
+      <h3>Articles:</h3>
+    </div>
+  </div>
+  <div class="container">
+    <ul class="a"> 
+      <!-- Noteworthy about this one is the template loop range that-
+           will iterate over the posts. Since it’s a flat array {{ . }}-
+           will display the string. -->
+      {{ range .posts }}
+        <li Class="a"><a href="/{{ . }}">{{ . }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+<!--Embed the footer.html template at this location-->
+{{ template "footer.tmpl.html" . }}

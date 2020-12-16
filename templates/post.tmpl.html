@@ -1,0 +1,11 @@
+<!--Embed the header.tmpl template at this location-->
+{{ template "header.tmpl.html" . }}
+{{ template "topnav.tmpl.html" .  }}
+  <div Class="posttext">
+    <div class="container">
+      {{.Content}}
+    </div>
+  </div>
+<!--Embed the footer.html template at this location-->
+{{ template "footer.tmpl.html" . }}   
+
