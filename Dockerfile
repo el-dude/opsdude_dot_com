@@ -17,15 +17,18 @@ RUN env GIT_TERMINAL_PROMPT=1 go get github.com/russross/blackfriday
 #WORKDIR $GOPATH
 #CMD ["make"]
 
+### Install the opsdude code assets & templates
 COPY ./assets/ /app/assets/
 COPY ./templates/ /app/templates/
 COPY ./markdown/ /app/markdown/
 COPY ./opsdude.go /
 
+### Build the opsdude App 
 RUN cp opsdude.go /go/src/
 RUN go build opsdude.go
 RUN rm -f opsdude.go
 
+# Cleanup 
 RUN cp opsdude /app/
 RUN rm -f opsdude
 
