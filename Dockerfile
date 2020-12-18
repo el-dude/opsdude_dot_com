@@ -1,6 +1,8 @@
 FROM alpine:latest
 
-RUN apk update && apk add --update --no-cache bash openssl git make musl-dev go
+RUN apk update \
+    && apk add --update --no-cache \
+    bash curl openssl git make musl-dev go
 
 # Configure Go
 ENV GOROOT /usr/lib/go
