@@ -8,6 +8,7 @@ phases:
     - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
     - IMAGE_TAG=${COMMIT_HASH:=latest}
     #- REPOSITORY_URI=012180367674.dkr.ecr.us-east-2.amazonaws.com/opsdude_test
+    # Task ID: 40fbb66d64a24f41bda4587c8ef811e6
     - REPOSITORY_URI=414532014492.dkr.ecr.us-east-2.amazonaws.com/opsdude
   build: 
     commands: 

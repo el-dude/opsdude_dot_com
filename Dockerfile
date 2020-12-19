@@ -36,7 +36,7 @@ RUN rm -f opsdude
 
 WORKDIR /app
 
-EXPOSE 8080
+EXPOSE 80
 
 ENTRYPOINT ["/app/opsdude"]
 
