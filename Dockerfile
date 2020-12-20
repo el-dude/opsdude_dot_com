@@ -16,9 +16,6 @@ RUN env GIT_TERMINAL_PROMPT=1 go get github.com/gin-contrib/static
 RUN env GIT_TERMINAL_PROMPT=1 go get github.com/gin-gonic/gin
 RUN env GIT_TERMINAL_PROMPT=1 go get github.com/russross/blackfriday
 
-#WORKDIR $GOPATH
-#CMD ["make"]
-
 ### Install the opsdude code assets & templates
 COPY ./assets/ /app/assets/
 COPY ./templates/ /app/templates/
