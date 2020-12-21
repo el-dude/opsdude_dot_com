@@ -55,15 +55,7 @@ li.a { padding: 6px 10px; }
   margin: 5;
 }
 
-/*
-#footerimg {
-  background-image: url(../assets/golang_gopher.png);
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  padding-top:68px;
-  margin-bottom:50px;
-}
-*/
+
 img {
   display: block;
   filter: grayscale(100%);
