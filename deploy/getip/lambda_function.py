@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     hosted_zone_id  = os.environ.get('ZONE_ID')
     vpc_id          = os.environ.get('VPC')
     security_id     = os.environ.get('SECURITY_GROUP_ID')
-    record_name     = "origin.ops-dude.com"
+    record_name     = os.environ.get('ORIGIN')
     codepipeline    = boto3.client('codepipeline')
 
     # logging
@@ -24,6 +24,7 @@ def lambda_handler(event, context):
     else:
         logger.info("Everything is all cool in the gang")
 
+    # get the IP that Fargate is using as an entry for the task
     response = client.describe_network_interfaces(
         Filters = [
             {
@@ -39,6 +40,7 @@ def lambda_handler(event, context):
     pub_ips = [eni.get('Association', {}).get('PublicIp') for eni in response.get('NetworkInterfaces', [])]
     pub_ip = pub_ips.pop()
 
+    #update the DNS for the origin adress in Route53
     response = r53_client.change_resource_record_sets(
         HostedZoneId = hosted_zone_id,
         ChangeBatch = {
